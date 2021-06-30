@@ -1,5 +1,6 @@
 package com.javapractice;
 
+import javax.sound.midi.Soundbank;
 import java.util.Scanner;
 
 public class Dashboard {
@@ -63,10 +64,11 @@ public class Dashboard {
         }
         else if (menuInput == 2) {
             parkCarResult = parkingLot.parkCar();
-            if (parkCarResult != -1) {
+            if (parkCarResult != -1 && parkCarResult != -2) {
                 System.out.println("Your car was successfully parked at spot " + parkCarResult);
             }
-            else System.out.println("Sorry, that spot is not available.");
+            else if(parkCarResult == -1) System.out.println("Sorry, that spot is not available.");
+            else if(parkCarResult == -2) System.out.println("Parking lot is full!");
         }
         else if (menuInput == 3) {
             removeCarResult = parkingLot.removeCar();

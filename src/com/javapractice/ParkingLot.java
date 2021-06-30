@@ -19,6 +19,12 @@ public class ParkingLot {
     }
 
     public int parkCar() {
+        //check if lot is full before allowing user to park car
+
+        if(isLotFull()) {
+            return -2;
+        }
+
         int spot;
         String make;
         String licensePlateNumber;
@@ -53,6 +59,19 @@ public class ParkingLot {
         }
         else return -1;
 
+    }
+
+    private boolean isLotFull() {
+        boolean lotIsFull = true;
+
+        for (int i = 0; i < 10; i++) {
+            if (parkedCars[i] == null) {
+                lotIsFull = false;
+                break;
+            }
+        }
+
+        return lotIsFull;
     }
 
     public boolean removeCar() {
