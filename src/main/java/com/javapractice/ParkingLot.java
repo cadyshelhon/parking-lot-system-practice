@@ -1,5 +1,6 @@
 package com.javapractice;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ParkingLot {
@@ -18,32 +19,16 @@ public class ParkingLot {
         }
     }
 
-    public int parkCar() {
+    public int parkCar(int spot, String make, String licensePlateNumber) {
         //check if lot is full before allowing user to park car
 
         if(isLotFull()) {
             return -2;
         }
 
-        int spot;
-        String make;
-        String licensePlateNumber;
-        Scanner carInput = new Scanner(System.in);
-
-        //ask user for the spot they want to park at
-        System.out.print("Enter parking spot number: ");
-        spot = carInput.nextInt();
         if(spot >= 0 && spot < 10) {
             if(parkedCars[spot] == null) {
                 //spot is available, so we can park a car there
-
-                //ask user for make of car
-                System.out.print("Enter the make of your car: ");
-                make = carInput.next();
-
-                //ask user for license plate number
-                System.out.print("Enter your license plate number: ");
-                licensePlateNumber = carInput.next();
 
                 //create new car
                 Car carToPark = new Car(make, licensePlateNumber);
@@ -74,13 +59,7 @@ public class ParkingLot {
         return lotIsFull;
     }
 
-    public boolean removeCar() {
-        String licensePlateNumber;
-        Scanner carInput = new Scanner(System.in);
-
-        //ask user for the spot they want to park at
-        System.out.print("Enter the license plate number of the car to remove: ");
-        licensePlateNumber = carInput.next();
+    public boolean removeCar(String licensePlateNumber) {
 
         //now look through the parking lot to see if a car's licNo matches
         for (int i = 0; i < 10; i++) {
@@ -94,5 +73,9 @@ public class ParkingLot {
         }
         //we have looked through all the cars and have not found the car, return false
         return false;
+    }
+
+    public void setParkedCars(Car[] newParkedCars) {
+        this.parkedCars = newParkedCars;
     }
 }

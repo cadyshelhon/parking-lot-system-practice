@@ -63,7 +63,21 @@ public class Dashboard {
             parkingLot.printParkingLot();
         }
         else if (menuInput == 2) {
-            parkCarResult = parkingLot.parkCar();
+            Scanner carInput = new Scanner(System.in);
+
+            //ask user for the spot they want to park at
+            System.out.print("Enter parking spot number: ");
+            int spot = carInput.nextInt();
+
+            //ask user for make of car
+            System.out.print("Enter the make of your car: ");
+            String make = carInput.next();
+
+            //ask user for license plate number
+            System.out.print("Enter your license plate number: ");
+            String licensePlateNumber = carInput.next();
+
+            parkCarResult = parkingLot.parkCar(spot, make, licensePlateNumber);
             if (parkCarResult != -1 && parkCarResult != -2) {
                 System.out.println("Your car was successfully parked at spot " + parkCarResult);
             }
@@ -71,7 +85,12 @@ public class Dashboard {
             else if(parkCarResult == -2) System.out.println("Parking lot is full!");
         }
         else if (menuInput == 3) {
-            removeCarResult = parkingLot.removeCar();
+            Scanner carInput = new Scanner(System.in);
+
+            //ask user for the spot they want to park at
+            System.out.print("Enter the license plate number of the car to remove: ");
+            String licensePlateNumber = carInput.next();
+            removeCarResult = parkingLot.removeCar(licensePlateNumber);
             if (removeCarResult) {
                 System.out.println("Your car was successfully removed, have a nice day!");
             }
