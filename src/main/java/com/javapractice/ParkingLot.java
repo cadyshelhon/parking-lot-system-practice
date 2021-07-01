@@ -1,8 +1,5 @@
 package com.javapractice;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class ParkingLot {
 
     private Car[] parkedCars = new Car[10];

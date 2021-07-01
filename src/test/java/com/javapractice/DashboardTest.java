@@ -6,7 +6,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DashboardTest {
 
+
     @Test
-    void startDashboard() {
+    void should_ExitWhenTrue() {
+        // want to test that dashboard exits when exit becomes true
     }
 }
