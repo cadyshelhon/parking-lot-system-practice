@@ -88,7 +88,7 @@ public class Dashboard {
         } else if (menuInput == 3) {
             Scanner carInput = new Scanner(System.in);
 
-            //ask user for the spot they want to park at
+            //ask user for licno
             System.out.print("Enter the license plate number of the car to remove: ");
             String licensePlateNumber = carInput.next();
             removeCarResult = parkingLot.removeCar(licensePlateNumber);
