@@ -35,17 +35,16 @@ public class Dashboard {
         do {
             //get input
             // validate input, should be 1,2,3, or 4, should not be a string or char
-            while(!menuScanner.hasNextInt()) {
+            while (!menuScanner.hasNextInt()) {
                 System.out.print("Please enter a number: ");
                 menuScanner.next();
             }
-                menuSelection = menuScanner.nextInt();
+            menuSelection = menuScanner.nextInt();
 
-                inputIsValid = validateMenuInput(menuSelection);
+            inputIsValid = validateMenuInput(menuSelection);
 
 
-
-        } while(!inputIsValid);
+        } while (!inputIsValid);
 
         //after validating input, redirect to appropriate functionality
         return handleMenuInput(menuSelection, parkingLot);
@@ -55,8 +54,7 @@ public class Dashboard {
         if (menuInput < 1 || menuInput > 4) {
             System.out.print("Please enter either 1, 2, 3, or 4: ");
             return false;
-        }
-        else
+        } else
             return true;
     }
 
@@ -67,8 +65,7 @@ public class Dashboard {
 
         if (menuInput == 1) {
             parkingLot.printParkingLot();
-        }
-        else if (menuInput == 2) {
+        } else if (menuInput == 2) {
             Scanner carInput = new Scanner(System.in);
 
             //ask user for the spot they want to park at
@@ -86,11 +83,9 @@ public class Dashboard {
             parkCarResult = parkingLot.parkCar(spot, make, licensePlateNumber);
             if (parkCarResult != -1 && parkCarResult != -2) {
                 System.out.println("Your car was successfully parked at spot " + parkCarResult);
-            }
-            else if(parkCarResult == -1) System.out.println("Sorry, that spot is not available.");
-            else if(parkCarResult == -2) System.out.println("Parking lot is full!");
-        }
-        else if (menuInput == 3) {
+            } else if (parkCarResult == -1) System.out.println("Sorry, that spot is not available.");
+            else if (parkCarResult == -2) System.out.println("Parking lot is full!");
+        } else if (menuInput == 3) {
             Scanner carInput = new Scanner(System.in);
 
             //ask user for the spot they want to park at
@@ -99,10 +94,8 @@ public class Dashboard {
             removeCarResult = parkingLot.removeCar(licensePlateNumber);
             if (removeCarResult) {
                 System.out.println("Your car was successfully removed, have a nice day!");
-            }
-            else System.out.println("Car not found.");
-        }
-        else return menuInput == 4;
+            } else System.out.println("Car not found.");
+        } else return menuInput == 4;
 
         return false;
     }

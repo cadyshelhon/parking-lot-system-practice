@@ -8,8 +8,7 @@ public class ParkingLot {
         for (int i = 0; i < 10; i++) {
             if (parkedCars[i] == null) {
                 System.out.println(i + "-UNOCCUPIED");
-            }
-            else {
+            } else {
                 System.out.println(i + parkedCars[i].getFormattedInfo());
             }
 
@@ -19,12 +18,12 @@ public class ParkingLot {
     public int parkCar(int spot, String make, String licensePlateNumber) {
         //check if lot is full before allowing user to park car
 
-        if(isLotFull()) {
+        if (isLotFull()) {
             return -2;
         }
 
-        if(spot >= 0 && spot < 10) {
-            if(parkedCars[spot] == null) {
+        if (spot >= 0 && spot < 10) {
+            if (parkedCars[spot] == null) {
                 //spot is available, so we can park a car there
 
                 //create new car
@@ -34,12 +33,10 @@ public class ParkingLot {
                 parkedCars[spot] = carToPark;
 
                 return spot;
-            }
-            else {
+            } else {
                 return -1;
             }
-        }
-        else return -1;
+        } else return -1;
 
     }
 
@@ -60,7 +57,7 @@ public class ParkingLot {
 
         //now look through the parking lot to see if a car's licNo matches
         for (int i = 0; i < 10; i++) {
-            if(parkedCars[i] != null) {
+            if (parkedCars[i] != null) {
                 if (parkedCars[i].getLicensePlateNumber().equals(licensePlateNumber)) {
                     //we found the car! now lets remove it and return true
                     parkedCars[i] = null;

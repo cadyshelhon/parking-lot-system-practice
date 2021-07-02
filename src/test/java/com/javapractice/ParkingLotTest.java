@@ -25,11 +25,11 @@ class ParkingLotTest {
         int expected = -2;
 
         //then return -2
-        assertEquals(expected,actual);
+        assertEquals(expected, actual);
     }
 
-   @ParameterizedTest(name = "spotNumber={0}")
-   @CsvSource(value = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"})
+    @ParameterizedTest(name = "spotNumber={0}")
+    @CsvSource(value = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"})
     void should_ReturnNegative1_WhenSpotIsTaken(int spot) {
         //given that the spot <number> is occupied
         ParkingLot testLot = new ParkingLot();
@@ -42,7 +42,7 @@ class ParkingLotTest {
         int expected = -1;
 
         //then return -1
-       assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
 
     @ParameterizedTest(name = "spotNumber={0}")
