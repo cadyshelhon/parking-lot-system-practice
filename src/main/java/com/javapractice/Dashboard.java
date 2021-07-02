@@ -34,9 +34,16 @@ public class Dashboard {
         //keep asking for input until user enters a valid option
         do {
             //get input
-             menuSelection = menuScanner.nextInt();
-            //validate input, should be 1,2,3, or 4
-            inputIsValid = validateMenuInput(menuSelection);
+            // validate input, should be 1,2,3, or 4, should not be a string or char
+            while(!menuScanner.hasNextInt()) {
+                System.out.print("Please enter a number: ");
+                menuScanner.next();
+            }
+                menuSelection = menuScanner.nextInt();
+
+                inputIsValid = validateMenuInput(menuSelection);
+
+
 
         } while(!inputIsValid);
 
@@ -46,7 +53,7 @@ public class Dashboard {
 
     private static boolean validateMenuInput(int menuInput) {
         if (menuInput < 1 || menuInput > 4) {
-            System.out.println("Please enter either 1, 2, 3, or 4.");
+            System.out.print("Please enter either 1, 2, 3, or 4: ");
             return false;
         }
         else
